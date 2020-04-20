@@ -1,6 +1,3 @@
-
-
-
 /*
 const placesList = document.querySelector('.places-list');
 const placeCard = rootSection.querySelector('.place-card');
@@ -13,15 +10,16 @@ const placeCardName = placeCardDescription.querySelector('.place-card__name');
 const placeCardLikeIcon = placeCardDescription.querySelector('.place-card__like-icon');
 */
 
-
 // 2. Реализовать открытие формы для добавления карточек
 // 3. Реализовать закрытие формы.
 //находим нужные классы
 const popup = document.querySelector("div.root .popup");
 const userInfoButton = document.querySelector(
-  "div.root .profile .user-info .user-info__button"            
+  "div.root .profile .user-info .user-info__button"
 );
-const buttonClose = document.querySelector('div.root .popup .popup__content .popup__close');
+const buttonClose = document.querySelector(
+  "div.root .popup .popup__content .popup__close"
+);
 //запускаем функцию
 function popupIsOpened() {
   popup.classList.add("popup_is-opened"); //окрыть
@@ -32,13 +30,31 @@ function popupClose() {
 }
 
 //вешаем наблюдателей
-userInfoButton.addEventListener('click', popupIsOpened);
-buttonClose.addEventListener('click', popupClose);
+userInfoButton.addEventListener("click", popupIsOpened);
+buttonClose.addEventListener("click", popupClose);
 
 // 4. Реализовать лайки.
+/*Сердечко — это элемент с классом "place-card__like-icon". 
+При лайке нужно давать ему дополнительный класс "place-card__like-icon_liked". 
+При снятии лайка этот класс у элемента нужно убирать.*/
+
+
+const placeCardLikeIcon = document.querySelector('div.root .places-list .place-card .place-card__description .place-card__like-icon');
+
+function likeClickLiked(event) {
+  if (event.target.classList.contains('place-card__like-icon')) {
+      event.target.classList.toggle('place-card__like-icon_liked');
+  }
+}
 
 
 
+placeCardLikeIcon.addEventListener('click', likeClickLiked);
+placeCardLikeIcon.addEventListener('click', likeClickNo);
+
+
+
+//console.log(placeCardLikeIcon);
 
 
 
@@ -132,7 +148,6 @@ list.appendChild(listItem); // В список задач будет добав�
 */
 // 1. Написать код, добавляющий карточки при загрузке страницы
 // 2. Реализовать открытие формы для добавления карточек
-
 
 // 5. Реализовать добавление карточек через форму.
 //https://photos.app.goo.gl/5QFm8TEpgF6D4yPU8
