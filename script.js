@@ -53,9 +53,63 @@ placeCardLikeIcon.addEventListener('click', likeClickLiked);
 
 
 
+// 6. Реализовать возможность удалять карточки.
+const placeCardDeleteIcon = document.querySelector('div.root .place-card__delete-icon');
+const placesList = document.querySelector('div.root .places-list')
+//console.log(placeCardDeleteIcon);
 
-//console.log(placeCardLikeIcon);
+function deleteClick(event) {
+  if (event.target.classList.contains('place-card__delete-icon')) {
+    placesList.removeChild(event.target.closest('.place-card'));
+        }
+}
 
+
+
+placeCardDeleteIcon.addEventListener('click', deleteClick);
+
+
+// 5. Реализовать добавление карточек через форму.
+
+
+/*
+// Создаёт элемент песни и возвращает его
+function createSong(artistValue, songValue) {
+    const trackContainer = document.createElement('div');
+    const artistElement = document.createElement('h4');
+    const titleElement = document.createElement('p');
+    const songButtonElement = document.createElement('button');
+
+    trackContainer.classList.add('song');
+    artistElement.classList.add('song__artist');
+    artistElement.textContent = artistValue;
+    titleElement.classList.add('song__title');
+    titleElement.textContent = songValue;
+    songButtonElement.classList.add('song__like');
+
+    trackContainer.appendChild(artistElement);
+    trackContainer.appendChild(titleElement);
+    trackContainer.appendChild(songButtonElement);
+
+    return trackContainer;
+}
+
+// Добавляет элемент песни
+function addSong(event) {
+    event.preventDefault();
+
+    const artist = form.elements.artist;
+    const song = form.elements.song;
+    const trackContainer = createSong(artist.value, song.value);
+
+    songsContainer.appendChild(trackContainer);
+    form.reset();
+    renderAdded();
+    addButton.setAttribute('disabled', true);
+    addButton.classList.add('input__btn_disabled');
+}
+
+*/
 
 
 /*
@@ -149,6 +203,6 @@ list.appendChild(listItem); // В список задач будет добав�
 // 1. Написать код, добавляющий карточки при загрузке страницы
 // 2. Реализовать открытие формы для добавления карточек
 
-// 5. Реализовать добавление карточек через форму.
-//https://photos.app.goo.gl/5QFm8TEpgF6D4yPU8
-// 6. Реализовать возможность удалять карточки.
+
+
+
