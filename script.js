@@ -50,7 +50,7 @@ function likeClickLiked(event) {
 
 
 placeCardLikeIcon.addEventListener('click', likeClickLiked);
-placeCardLikeIcon.addEventListener('click', likeClickNo);
+
 
 
 
