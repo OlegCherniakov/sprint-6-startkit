@@ -69,32 +69,43 @@ function deleteClick(event) {
 placeCardDeleteIcon.addEventListener('click', deleteClick);
 
 
-5. Реализовать добавление карточек через форму.
+//5. Реализовать добавление карточек через форму.
 
 
-/*
-// Создаёт элемент песни и возвращает его
-function createSong(artistValue, songValue) {
-    const trackContainer = document.createElement('div');
-    const artistElement = document.createElement('h4');
-    const titleElement = document.createElement('p');
-    const songButtonElement = document.createElement('button');
 
-    trackContainer.classList.add('song');
+// Создаёт элемент карточки возвращает его
+function createCard(placeName) {
+    const placeCardContainer = document.createElement('div');
+    const placeCardImageContainer = document.createElement('div');
+    const placeCardDeleteIconElement = document.createElement('button');
+    const placeCardDescriptionContainer = document.createElement('div');
+    const placeCardNameElement = document.createElement("h3");
+    const placeCardLikeIconElement = document.createElement('button');
+
+    placeCardContainer.classList.add('place-card');
+    placeCardImageContainer.classList.add('place-card__image');
+    placeCardDeleteIconElement.classList.add('place-card__delete-icon');
+    placeCardDescriptionContainer.classList.add('place-card__description');
+    placeCardNameElement.classList.add('place-card__name');
+    placeCardNameElement.textContent = placeName;
+    placeCardLikeIconElement.classList.add('place-card__like-icon');
+
     artistElement.classList.add('song__artist');
     artistElement.textContent = artistValue;
     titleElement.classList.add('song__title');
     titleElement.textContent = songValue;
     songButtonElement.classList.add('song__like');
 
-    trackContainer.appendChild(artistElement);
-    trackContainer.appendChild(titleElement);
-    trackContainer.appendChild(songButtonElement);
+    placeCardContainer.appendChild(placeCardImageContainer);
+    placeCardContainer.appendChild(placeCardDescriptionContainer);
+    placeCardImageContainer.appendChild(placeCardDeleteIconElement);
+    placeCardDescriptionContainer.appendChild(placeCardNameElement);
+    placeCardDescriptionContainer.appendChild(placeCardLikeIconElement);
 
-    return trackContainer;
+       return trackContainer;
 }
 
-// Добавляет элемент песни
+// Добавляет элемент карточки
 function addSong(event) {
     event.preventDefault();
 
@@ -109,7 +120,7 @@ function addSong(event) {
     addButton.classList.add('input__btn_disabled');
 }
 
-*/
+
 
 
 /*
