@@ -69,7 +69,7 @@ function deleteClick(event) {
 placeCardDeleteIcon.addEventListener('click', deleteClick);
 
 
-// 5. Реализовать добавление карточек через форму.
+5. Реализовать добавление карточек через форму.
 
 
 /*
