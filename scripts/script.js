@@ -3,18 +3,19 @@
 //находим нужные классы
 const popup = document.querySelector("div.root .popup");
 const popupButton = document.querySelector("div.root .popup .popup__button");
-
+const popupInputTypeName = document.querySelector(
+  "div.root .popup__input_type_name"
+);
+const popupInputTypeLinkUrl = document.querySelector(
+  "div.root .popup__input_type_link-url"
+);
 const userInfoButton = document.querySelector(
   "div.root .profile .user-info .user-info__button"
 );
 const buttonClose = document.querySelector(
   "div.root .popup .popup__content .popup__close"
 );
-
 const placesList = document.querySelector("div.root .places-list");
-
-
-
 const form = document.forms.new;
 
 //запускаем функцию
@@ -25,9 +26,6 @@ function popupIsOpened() {
 function popupClose() {
   popup.classList.remove("popup_is-opened"); //закрыть
 }
-
-//вешаем наблюдателей
-
 //5. Реализовать добавление карточек через форму.
 // Создаёт элемент карточки возвращает его
 function createCard(placeName, placeLink) {
@@ -68,6 +66,14 @@ function addCard(event) {
   form.reset(); // очистка формы
 }
 
+//функция нажатия Enter
+function eventEnter(event) {
+  if (event.key === "Enter") {
+    addCard(event);
+    popupClose();
+  }
+}
+
 // 4. Реализовать лайки.
 
 function likeClickLiked(event) {
@@ -95,11 +101,10 @@ initialCards.map((card) => {
 
 //слушатели
 userInfoButton.addEventListener("click", popupIsOpened);
-buttonClose.addEventListener("click", popupClose);  //слушатель закрытия формы
-popupButton.addEventListener("click", popupClose);//слушатель закрытия формы после ввода полей
+buttonClose.addEventListener("click", popupClose); //слушатель закрытия формы
+popupButton.addEventListener("click", popupClose); //слушатель закрытия формы после ввода полей
 form.addEventListener("submit", addCard);
 placesList.addEventListener("click", deleteClick);
 placesList.addEventListener("click", likeClickLiked);
-
-// 1. Написать код, добавляющий карточки при загрузке страницы
-// 2. Реализовать открытие формы для добавления карточек
+popupInputTypeName.addEventListener("keydown", eventEnter); //слушатель кнопки Enter
+popupInputTypeLinkUrl.addEventListener("keydown", eventEnter); //слушатель кнопки Enter
