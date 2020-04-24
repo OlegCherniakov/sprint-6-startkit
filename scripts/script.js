@@ -11,6 +11,8 @@ const buttonClose = document.querySelector(
 
 const placesList = document.querySelector("div.root .places-list");
 
+
+
 const form = document.forms.new;
 
 //запускаем функцию
@@ -62,14 +64,9 @@ function addCard(event) {
 
   placesList.appendChild(placeCardContainer); //куда добаляю карточку
   form.reset(); // очистка формы
-  //addButton.setAttribute('disabled', true);
-  //addButton.classList.add('.popup__button');
 }
 
 // 4. Реализовать лайки.
-/*Сердечко — это элемент с классом "place-card__like-icon". 
-При лайке нужно давать ему дополнительный класс "place-card__like-icon_liked". 
-При снятии лайка этот класс у элемента нужно убирать.*/
 
 function likeClickLiked(event) {
   if (event.target.classList.contains("place-card__like-icon")) {
@@ -87,20 +84,19 @@ function deleteClick(event) {
   }
 }
 
+//выводим все карточки на страничку
+
+initialCards.map((card) => {
+  const newcard = createCard(card.name, card.link);
+  placesList.appendChild(newcard);
+});
+
+//слушатели
 userInfoButton.addEventListener("click", popupIsOpened);
 buttonClose.addEventListener("click", popupClose);
 form.addEventListener("submit", addCard);
 placesList.addEventListener("click", deleteClick);
 placesList.addEventListener("click", likeClickLiked);
 
-
-
-/*
-const listItem = document.createElement('div');
-const list = document.querySelector('#items');
-const listItem = document.createElement('li');
-
-list.appendChild(listItem); // В список задач будет добавлен пустой пункт li, который мы создали методом createElement.
-*/
 // 1. Написать код, добавляющий карточки при загрузке страницы
 // 2. Реализовать открытие формы для добавления карточек
