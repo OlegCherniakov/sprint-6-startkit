@@ -2,6 +2,8 @@
 // 3. Реализовать закрытие формы.
 //находим нужные классы
 const popup = document.querySelector("div.root .popup");
+const popupButton = document.querySelector("div.root .popup .popup__button");
+
 const userInfoButton = document.querySelector(
   "div.root .profile .user-info .user-info__button"
 );
@@ -93,7 +95,8 @@ initialCards.map((card) => {
 
 //слушатели
 userInfoButton.addEventListener("click", popupIsOpened);
-buttonClose.addEventListener("click", popupClose);
+buttonClose.addEventListener("click", popupClose);  //слушатель закрытия формы
+popupButton.addEventListener("click", popupClose);//слушатель закрытия формы после ввода полей
 form.addEventListener("submit", addCard);
 placesList.addEventListener("click", deleteClick);
 placesList.addEventListener("click", likeClickLiked);
