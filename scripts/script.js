@@ -18,6 +18,15 @@ const buttonClose = document.querySelector(
 const placesList = document.querySelector("div.root .places-list");
 const form = document.forms.new;
 
+/**
+ *  Можно лучше: Чаще всего функции характеризуют какое либо действие и начинаются с глагола. Например,
+ *  если мы назовём функцию closePopup, то при взгляде на название функции сразу будет
+ *  понятно, чем она занимается. Вот здесь можно почитать об этом подробнее https://learn.javascript.ru/function-basics#function-naming
+ *
+ *  Можно лучше: Можно объединить эти две функции (popupIsOpened и popupClose) в одну и использовать знакомый нам
+ *  метод .toggle, вместо .add и .remove
+ *
+ * */
 //запускаем функцию
 function popupIsOpened() {
   popup.classList.add("popup_is-opened"); //окрыть
@@ -94,6 +103,10 @@ function deleteClick(event) {
 
 //выводим все карточки на страничку
 
+/**
+ * Можно лучше: Обычно map используется для изменения массива. Если у вас нет цели модифицировать исходный массив,
+ * то лучше использовать что нибудь другое, например forEach.
+ */
 initialCards.map((card) => {
   const newcard = createCard(card.name, card.link);
   placesList.appendChild(newcard);
@@ -102,9 +115,29 @@ initialCards.map((card) => {
 //слушатели
 userInfoButton.addEventListener("click", popupIsOpened);
 buttonClose.addEventListener("click", popupClose); //слушатель закрытия формы
+/**
+ * Можно лучше: Закрывать попап нужно после добавления карточки
+ */
 popupButton.addEventListener("click", popupClose); //слушатель закрытия формы после ввода полей
 form.addEventListener("submit", addCard);
+/**
+ * Отлично, используется делегирование событий, слушатель определен на контейнере, а не вешается на каждую карточку.
+ * И да, можно объединить функции deleteClick и likeClickLiked.
+ */
 placesList.addEventListener("click", deleteClick);
 placesList.addEventListener("click", likeClickLiked);
+/**
+ * Можно лучше: Нет необходимости обрабатывать событие keydown на Enter, так как у нас выше уже объявлен обработчик
+ * для события submit.
+ */
 popupInputTypeName.addEventListener("keydown", eventEnter); //слушатель кнопки Enter
 popupInputTypeLinkUrl.addEventListener("keydown", eventEnter); //слушатель кнопки Enter
+
+/**
+ * В целом, работа выполнена хорошо, виден порядок в коде, используется делегирование событий для обработки нажатия
+ * на иконку 'лайк' и 'удалить', массив initialCards вынесен в отдельный файл.
+ *
+ * Что можно сделать лучше:
+ *  Нам достаточно обрабатывать событие submit для формы, нет необходимости обрабатывать отдельно нажатие на popupButton
+ *  и нажатие на клавишу Enter. Подробнее здесь: https://learn.javascript.ru/forms-submit
+ */
