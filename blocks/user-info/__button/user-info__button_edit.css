@@ -1,0 +1,27 @@
+
+
+.user-info__button_edit {
+    display: flex;
+    width: 38px;
+    height: 18px;
+    font-size: 0.75rem;
+    
+    text-align: center;
+    background-color: transparent;
+    color: #FFFFFF;
+    margin-top: 24px;
+    border: 1px solid #FFFFFF;
+}
+
+
+.user-info__button_edit:hover {
+    background-color: #FFFFFF;
+    color: black;
+    border: darkblue;
+}
+
+.user-info__button_edit:active {
+    background-color: rgb(7, 30, 245);
+    color: black;
+    border: 2px chartreuse;
+}
