@@ -6,7 +6,7 @@
 @import url(./__button/edit-popup__button.css);
 @import url(./_is-opened/edit-popup_is-opened.css);
 
-.popup {
+.edit-popup {
   position: fixed;
   top: 0;
   left: 0;
