@@ -29,16 +29,17 @@ const form = document.forms.new;
  * */
 // 7 - спринт_______________________________________________________________________
 const editPopup = document.querySelector("div.root .edit-popup");
-const userInfoButtonEdit = document.querySelector("div.root .user-info__button_edit");
-const editPopupClose = document.querySelector("div.root .edit-popup__close")
+const userInfoButtonEdit = document.querySelector(
+  "div.root .user-info__button_edit"
+);
+const editPopupClose = document.querySelector("div.root .edit-popup__close");
 //console.log(userInfoButtonEdit);
-
 
 function actionEditPopup() {
   editPopup.classList.add("popup_is-opened");
 }
 
-function cardClosingEditPopup () {
+function cardClosingEditPopup() {
   editPopup.classList.remove("popup_is-opened");
 }
 
