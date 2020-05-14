@@ -34,6 +34,8 @@ const userInfoButtonEdit = document.querySelector(
 );
 const editPopupClose = document.querySelector("div.root .edit-popup__close");
 //console.log(userInfoButtonEdit);
+const editPopupInputTypeName = document.querySelector("div.root .edit-popup__input_type_name");
+const editPopupInputTypeLinkUrl = document.querySelector("div.root .edit-popup__input_type_link-url");
 
 function actionEditPopup() {
   editPopup.classList.add("popup_is-opened");
@@ -41,6 +43,10 @@ function actionEditPopup() {
 
 function cardClosingEditPopup() {
   editPopup.classList.remove("popup_is-opened");
+}
+
+function creatEditCard (editName, editAbout) {  //создаю функцию для полей карточки
+  
 }
 
 userInfoButtonEdit.addEventListener("click", actionEditPopup);
